@@ -1,12 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
-    <title>userslist</title>
+    <title>userdata</title>
 
     <style type="text/css">
         .tg {
@@ -48,43 +48,22 @@
     </style>
 </head>
 <body>
-<br/>
-<br/>
-<h1>userlist</h1>
-<c:if test="${!empty listUsers}">
-    <table class="tg">
-        <tr>
-            <th width="80">ID</th>
-            <th width="80">Name</th>
-            <th width="80">Age</th>
-            <th width="80">IsAdmin</th>
-            <th width="80">Date</th>
-        </tr>
-        <c:forEach items="${listUsers}" var="users">
-            <tr>
-                <td>{$users.id}</td>
-                <td>{$users.name}</td>
-                <td>{$users.age}</td>
-                <td>{$users.is_admin}</td>
-                <td>{$users.date}</td>
-            </tr>
-        </c:forEach>
-    </table>
-</c:if>
-
-<table>
-    <c:if test="${!empty users.name}">
-        <tr>
-            <td>
-                <form:label path="id">
-                    <spring:message text="ID"/>
-                </form:label>
-            </td>
-            <form:input path="id" readonly="true" size="8" disabled="true"/>
-            <form:hidden path="id"/>
-        </tr>
-    </c:if>
+<h1>user details</h1>
+<table class="tg">
+    <tr>
+        <th width="80">ID</th>
+        <th width="200">name</th>
+        <th width="80">age</th>
+        <th width="80">is_admin</th>
+        <th width="200">created_date</th>
+    </tr>
+    <tr>
+        <td>${user.id}</td>
+        <td>${user.name}</td>
+        <td>${user.age}</td>
+        <td>${user.admin}</td>
+        <td>${user.createdDate}</td>
+    </tr>
 </table>
-
 </body>
 </html>

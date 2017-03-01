@@ -34,8 +34,7 @@ public class UserDaoImpl implements UserDao {
 
     public void removeUser(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-//        User user = (User) session.load(User.class, new Integer(id));
-        User user = session.load(User.class, new Integer(id));
+        User user = (User) session.load(User.class, new Integer(id));
 
         if (user != null) {
             session.delete(user);
@@ -45,8 +44,7 @@ public class UserDaoImpl implements UserDao {
 
     public User getUserById(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-//        User user = (User) session.load(User.class, new Integer(id));
-        User user = session.load(User.class, new Integer(id));
+        User user = (User) session.load(User.class, new Integer(id));
         logger.info("user successfully loaded. details: " + user);
         return user;
     }
