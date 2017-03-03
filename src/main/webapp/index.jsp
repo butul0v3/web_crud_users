@@ -8,12 +8,17 @@
 <html>
 <head>
     <title>userslist</title>
+    <link rel="stylesheet" href="resources/app.css">
 </head>
-<h1>userlist</h1>
 
-<a href="<c:url value="/users"/>" target="_blank">list</a>
+<div id="wrapper">
 
+<ul class="menu">
+<a href="<c:url value="/users"/>" target="_self">list</a>
+</ul>
+<br/>
 <br/>
 
+</div>
 </body>
 </html>
