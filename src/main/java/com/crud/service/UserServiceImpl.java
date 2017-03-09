@@ -2,12 +2,15 @@ package com.crud.service;
 
 import com.crud.dao.UserDao;
 import com.crud.model.User;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
+@Service("userService")
+@Repository
+@Transactional
 public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
@@ -37,5 +40,12 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public List<User> listUsers() {
         return this.userDao.listUsers();
+    }
+
+    @Transactional
+    public List<User> listSelectUsers(String name) { return this.userDao.listSelectUsers(name); }
+
+    public User getUserByName(String name) {
+        return this.userDao.getUserByName(name);
     }
 }

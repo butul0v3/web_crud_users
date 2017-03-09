@@ -14,10 +14,10 @@
 <table class="tg">
     <tr>
         <th width="80">ID</th>
-        <th width="200">name</th>
-        <th width="80">age</th>
-        <th width="80">is_admin</th>
-        <th width="200">created_date</th>
+        <th width="200">Name</th>
+        <th width="80">Age</th>
+        <th width="80">IsAdmin</th>
+        <th width="200">CreatedDate</th>
     </tr>
     <tr>
         <td>${user.id}</td>

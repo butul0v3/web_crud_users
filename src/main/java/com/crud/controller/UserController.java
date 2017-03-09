@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
     private UserService userService;
 
+
     @Autowired(required = true)
     @Qualifier(value = "userService")
     public void setUserService(UserService userService) {
@@ -27,6 +28,13 @@ public class UserController {
         model.addAttribute("listUsers", this.userService.listUsers());
 
         return "users";
+    }
+
+    @RequestMapping(value = "filter", method = RequestMethod.GET)
+    public String listSelectUsers(String name, Model model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("selectedUsers", this.userService.listSelectUsers(name));
+        return "filter";
     }
 
     @RequestMapping(value = "/users/add", method = RequestMethod.POST)
@@ -60,4 +68,5 @@ public class UserController {
         model.addAttribute("user", this.userService.getUserById(id));
         return "userdata";
     }
+
 }

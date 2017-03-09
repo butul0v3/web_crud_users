@@ -14,4 +14,19 @@
     <servlet-name>mvc-dispatcher</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>FilterByNameServlet</servlet-name>
+    <servlet-class>com.crud.servlets.FilterByNameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilterByNameServlet</servlet-name>
+    <url-pattern>/filter</url-pattern>
+  </servlet-mapping>
+
+  <error-page>
+    <error-code>400</error-code>
+
+    <location>/WEB-INF/pages/error.jsp</location>
+  </error-page>
 </web-app>

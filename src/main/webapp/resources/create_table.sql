@@ -1,0 +1,8 @@
+CREATE TABLE user (
+  id INT (8) AUTO_INCREMENT,
+  name VARCHAR(25) NOT NULL,
+  age INT NOT NULL,
+  is_admin TINYINT(4) NOT NULL,
+  created_date TIMESTAMP NOT NULL,
+  PRIMARY KEY (id)
+);

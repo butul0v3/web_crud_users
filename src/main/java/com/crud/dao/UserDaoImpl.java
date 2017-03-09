@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 @Repository
 
 public class UserDaoImpl implements UserDao {
@@ -58,5 +59,29 @@ public class UserDaoImpl implements UserDao {
             logger.info("list of users: " + user);
         }
         return userList;
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<User> listSelectUsers(String name) {
+        List<User> result = null;
+        if (name != null) {
+
+            Session session = this.sessionFactory.getCurrentSession();
+            List<User> userList = session.createQuery("from User").list();
+            for (User user : userList) {
+                if (user.getName().equals(name))
+                    result.add(user);
+                    logger.info("list of users: " + user);
+            }
+        }
+        return result;
+    }
+
+
+    public User getUserByName(String name) {
+        Session session = this.sessionFactory.getCurrentSession();
+        User user = (User) session.load(name, 1L);
+        logger.info("user successfully loaded. details: " + user);
+        return user;
     }
 }

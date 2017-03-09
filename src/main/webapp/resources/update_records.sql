@@ -1,0 +1,14 @@
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('admin', 25, TRUE, '2000-02-09 20:00:00');
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('boss', 33, TRUE, '2000-02-09 20:00:00');
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('user', 18, FALSE , '2001-12-30 09:00:00');
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('user1', 18, FALSE , '2002-01-10 09:25:00');
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('user2', 21, FALSE , '2012-01-20 10:25:00');
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('user3', 19, FALSE , '2012-02-15 13:11:23');
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('user4', 29, FALSE , '2012-02-19 16:01:37');
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('new_admin', 33, TRUE , '2013-01-11 11:06:03');
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('user_5', 45, FALSE , '2015-09-23 08:01:53');
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('user_6', 22, FALSE , '2015-10-01 10:02:55');
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('user_7', 26, FALSE , '2016-01-20 11:02:03');
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('user_8', 31, FALSE , '2016-01-22 12:09:33');
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('user_9', 30, FALSE , '2016-01-25 11:01:31');
+INSERT INTO user (name, age, is_admin, created_date) VALUES ('user_10', 25, FALSE , '2016-01-29 12:38:32');

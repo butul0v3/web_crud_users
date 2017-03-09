@@ -10,7 +10,7 @@ public class WorkerConnection {
     private final String url = "jdbc:mysql://localhost:3306/test";
     private final String userName = "root";
     private final String password = "root";
-    private final String query = "SELECT * FROM user";
+    private String query = "SELECT * FROM test.user where name like '%";
     private Connection connection = null;
     private Statement statement = null;
     private ResultSet resultSet = null;
@@ -18,13 +18,14 @@ public class WorkerConnection {
     public WorkerConnection() {
     }
 
-    public List<User> getUsers() {
+    public List<User> getUsers(String name) {
         User user = null;
         List<User> result = new ArrayList<User>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, userName, password);
             statement = connection.createStatement();
+            query = query  + name + "%';";
             System.out.println(query);
             resultSet = statement.executeQuery(query);
 
