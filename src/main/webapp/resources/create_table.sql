@@ -3,6 +3,6 @@ CREATE TABLE user (
   name VARCHAR(25) NOT NULL,
   age INT NOT NULL,
   is_admin TINYINT(4) NOT NULL,
-  created_date TIMESTAMP NOT NULL,
+  created_date TIMESTAMP DEFAULT NOW(),
   PRIMARY KEY (id)
 );

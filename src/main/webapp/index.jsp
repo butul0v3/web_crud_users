@@ -9,6 +9,46 @@
 <head>
     <title>userslist</title>
     <link rel="stylesheet" href="resources/app.css">
+    <style type="text/css">
+        /* app css stylesheet */
+
+        #wrapper {
+            margin: 0 auto;
+            width: 650px;
+            margin-top: 50px;
+        }
+
+        .menu {
+            text-align: center;
+            list-style: none;
+            padding: 0 0 0.5em;
+            font-size: 40px;
+            font-weight: bolder;
+        }
+
+        .menu:before {
+            content: "[";
+        }
+
+        .menu:after {
+            content: "]";
+        }
+
+        .menu > li {
+            display: inline;
+        }
+
+        .menu > li:before {
+            content: "|";
+            padding-right: 0.3em;
+        }
+
+        .menu > li:nth-child(1):before {
+            content: "";
+            padding: 0;
+        }
+
+    </style>
 </head>
 
 <div id="wrapper">
@@ -19,8 +59,8 @@
 <br/>
 <br/>
     <p>
-        Есть возможность выбрать одного из использователей (информация открывается в отдельном окне).
-        Реализован поиск по имени пользователя.
+        На текущий момент существует возможность добавления, удаления, редактирования пользователей.
+        Поиск осуществляется по полю 'name'. Есть недоработка с пейджингом - отображаются 10 страниц (по 10 записей на каждой).
     </p>
 </div>
 </body>

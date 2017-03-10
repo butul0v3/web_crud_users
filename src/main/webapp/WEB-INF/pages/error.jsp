@@ -13,6 +13,6 @@
 </head>
 <body>
 <p>Переданы некорректные данные. Проверьте правильность ввода и повторите попытку</p>
-<a href="/users/1">back to list</a>
+<a href="" onclick="history.back()">back to list</a>
 </body>
 </html>

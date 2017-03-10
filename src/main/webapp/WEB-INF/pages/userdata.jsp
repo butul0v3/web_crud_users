@@ -8,10 +8,91 @@
     <title>userdata</title>
     <link rel="stylesheet" href="/resources/users.css"/>
     <link rel="stylesheet" href="/resources/bootstrap.css"/>
+    <style type="text/css">
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 15px;
+            border-color: black;
+            background-color: #333333;
+            text-align: center;
+            margin: auto;
+            position: relative;
+        }
+
+
+        .tg td {
+            font-family: Verdana, sans-serif;
+            font-size: 14px;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #a4a4a4;
+            color: #383b45;
+            background-color: #b4b4b4;
+        }
+
+        .tg th {
+            font-family: Verdana, sans-serif;
+            font-size: 15px;
+            font-weight: normal;
+            padding: 10px 5px;
+            border-style: ridge;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #a4a4a4;
+            color: #f9f9f9;
+            background-color: #36393d;
+            text-align: center;
+        }
+
+        .tg .tg-4eph {
+            background-color: #f9f9f9
+        }
+
+        a:link, a:visited, a:active {
+            color: #272727;
+        }
+
+        .form-search {
+            position: relative;
+            left: 40%;
+            width: 50%;
+        }
+
+
+        .add-form {
+            font-family: Verdana, sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+
+        }
+
+        .adding-form {
+            right: -1%;
+            position: relative;
+            width: 50%;
+        }
+
+        h3 {
+            position: relative;
+            right: -1%;
+            font-family: Verdana, sans-serif;
+            width: 50%;
+        }
+
+        .pagination {
+            position: relative;
+            left: 40%;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <br/>
-<a href="/users/1">back to list</a>
+<a href="" onclick="history.back()">back to list</a>
 <c:url var="addAction" value="/users/add"/>
 <form:form action="${addAction}" commandName="user" cssClass="adding-form">
     <table>
