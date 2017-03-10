@@ -4,6 +4,7 @@ import com.crud.model.User;
 import com.crud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,10 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @Controller
 public class UserController {
     private UserService userService;
-
 
     @Autowired(required = true)
     @Qualifier(value = "userService")
@@ -29,6 +31,15 @@ public class UserController {
 
         return "users";
     }
+
+    @RequestMapping(value = "/users/{pageNumber}", method = RequestMethod.GET)
+    public String getByPage(@PathVariable Integer pageNumber, Model model) {
+        List<User> userList = userService.listOfUsers(new PageRequest(pageNumber, 10));
+        model.addAttribute("user", new User());
+        model.addAttribute("listUsers", userList);
+        return "users";
+    }
+
 
     @RequestMapping(value = "filter", method = RequestMethod.GET)
     public String listSelectUsers(String name, Model model) {
@@ -45,22 +56,22 @@ public class UserController {
             this.userService.updateUser(user);
         }
 
-        return "redirect:/users";
+        return "redirect:/users/1";
+
     }
 
     @RequestMapping("/remove/{id}")
     public String removeUser(@PathVariable("id") int id) {
         this.userService.removeUser(id);
 
-        return "redirect:/users";
+        return "redirect:/users/1";
     }
 
     @RequestMapping("edit/{id}")
     public String editUser(@PathVariable("id") int id, Model model) {
         model.addAttribute("user", this.userService.getUserById(id));
         model.addAttribute("listUsers", this.userService.listUsers());
-
-        return "users";
+        return "userdata";
     }
 
     @RequestMapping("userdata/{id}")

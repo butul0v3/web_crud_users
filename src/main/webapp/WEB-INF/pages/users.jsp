@@ -15,9 +15,9 @@
 </head>
 <body>
 <br/>
-<a href="users">reset form</a>
+<a href="" onclick="window.location.reload()">reset form</a>
 
-<h3>add new user</h3>
+
 <c:url var="addAction" value="/users/add"/>
 
 
@@ -81,8 +81,8 @@
         </tr>
     </table>
 </form:form>
-
-<form class="form-search" action="filter" name="filter">Enter username:
+<c:url value="/filter" var="filter"/>
+<form class="form-search" action="${filter}" name="filter">Enter username:
     <input type="text" class="input-medium search-query" name="userName" value="" id="userName">
     <button type="submit" class="btn" value="button">Search
 
@@ -115,6 +115,52 @@
         </c:forEach>
     </c:if>
 </table>
+
+
+<c:set var="pageName" value="1"/>
+<c:set var="total" value="10"/>
+
+<c:url var="prevUrl" value="/users/${pageName - 1}"/>
+<c:url var="nextUrl" value="/users/${pageName + 1}"/>
+<c:url var="firstUrl" value="/users/1"/>
+<c:url var="lastUrl" value="/users/${total}"/>
+
+<div class="pagination">
+    <ul>
+        <c:choose>
+            <c:when test="${pageName == 1}">
+                <a href="#">&lt;&lt;</a>
+                <a href="#">&lt;</a>
+            </c:when>
+            <c:otherwise>
+                <a href="${firstUrl}">&lt;&lt;</a>
+                <a href="${prevUrl}">&lt;</a>
+            </c:otherwise>
+        </c:choose>
+        <c:forEach var="i" begin="1" end="${total}">
+            <c:url var="pageUrl" value="/users/${i}"/>
+            <c:choose>
+                <c:when test="${i == pageName}">
+                    <a href="${pageUrl}"><c:out value="${i}"/></a>
+                </c:when>
+                <c:otherwise>
+                    <a href="${pageUrl}"><c:out value="${i}"/></a>
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
+        <c:choose>
+            <c:when test="${pageName == total}">
+                <a href="#">&gt;</a>
+                <a href="#">&gt;&gt;</a>
+            </c:when>
+            <c:otherwise>
+                <a href="${nextUrl}">&gt;</a>
+                <a href="${lastUrl}">&gt;&gt;</a>
+            </c:otherwise>
+        </c:choose>
+    </ul>
+</div>
+
 </body>
 </html>
 

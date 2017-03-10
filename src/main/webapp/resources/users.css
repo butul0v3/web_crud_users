@@ -8,6 +8,7 @@
     position: relative;
 }
 
+
 .tg td {
     font-family: Verdana, sans-serif;
     font-size: 14px;
@@ -34,8 +35,6 @@
     color: #f9f9f9;
     background-color: #36393d;
     text-align: center;
-
-
 }
 
 .tg .tg-4eph {
@@ -71,5 +70,10 @@ h3 {
     right: -1%;
     font-family: Verdana, sans-serif;
     width: 50%;
+}
 
+.pagination {
+    position: relative;
+    left: 40%;
+    text-align: center;
 }

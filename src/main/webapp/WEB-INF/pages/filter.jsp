@@ -7,7 +7,7 @@
 </head>
 <body>
 <br/>
-<a href="users">back</a>
+<a href="/users/1">back to list</a>
 <table class="tg">
     <tr>
         <th width="80">ID</th>
@@ -20,7 +20,7 @@
     </tr>
     <c:url value="${userName}" var="name"/>
 
-        <c:forEach var="users" items="${listUsers}">
+        <c:forEach var="users" items="${selectedUsers}">
                 <tr>
                     <c:url var="userdata" value="/userdata/${users.id}"/>
                     <td>${users.id}</td>

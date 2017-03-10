@@ -5,8 +5,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -14,6 +16,8 @@ import java.util.List;
 
 public class UserDaoImpl implements UserDao {
     private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
+    private static final int PAGE_SIZE = 10;
+
 
     private SessionFactory sessionFactory;
 
@@ -63,7 +67,7 @@ public class UserDaoImpl implements UserDao {
 
     @SuppressWarnings("unchecked")
     public List<User> listSelectUsers(String name) {
-        List<User> result = null;
+        List<User> result = new ArrayList<User>();
         if (name != null) {
 
             Session session = this.sessionFactory.getCurrentSession();
@@ -71,17 +75,22 @@ public class UserDaoImpl implements UserDao {
             for (User user : userList) {
                 if (user.getName().equals(name))
                     result.add(user);
-                    logger.info("list of users: " + user);
+                logger.info("list of users: " + user);
             }
         }
         return result;
     }
 
-
-    public User getUserByName(String name) {
+    public List<User> listOfUsers(Pageable pageable) {
         Session session = this.sessionFactory.getCurrentSession();
-        User user = (User) session.load(name, 1L);
-        logger.info("user successfully loaded. details: " + user);
-        return user;
+        int currentPage = pageable.getPageNumber();
+        List<User> result = new ArrayList<User>();
+        List<User> userList = session.createQuery("from User").list();
+        for (int i = (currentPage * 10) - 10; i < currentPage * 10 && i < userList.size(); i++ ) {
+            result.add(userList.get(i));
+            logger.info("list of users: " + userList.get(i));
+        }
+
+        return result;
     }
 }

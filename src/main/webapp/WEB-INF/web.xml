@@ -23,10 +23,12 @@
     <servlet-name>FilterByNameServlet</servlet-name>
     <url-pattern>/filter</url-pattern>
   </servlet-mapping>
-
   <error-page>
     <error-code>400</error-code>
 
     <location>/WEB-INF/pages/error.jsp</location>
   </error-page>
+
+
+
 </web-app>

@@ -17,7 +17,7 @@ public class FilterByNameServlet extends HttpServlet {
         String userName = (String) req.getParameter("userName");
         WorkerConnection workerConnection = new WorkerConnection();
         List<User> select = workerConnection.getUsers(userName);
-        req.setAttribute("listUsers", select);
+        req.setAttribute("selectedUsers", select);
 
         req.getRequestDispatcher("WEB-INF/pages/filter.jsp").forward(req, resp);
     }

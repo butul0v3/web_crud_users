@@ -1,6 +1,7 @@
 package com.crud.dao;
 
 import com.crud.model.User;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -12,5 +13,5 @@ public interface UserDao {
     List<User> listUsers();
     List<User> listSelectUsers(String name);
 
-    User getUserByName(String name);
+    List<User> listOfUsers(Pageable pageable);
 }

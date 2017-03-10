@@ -2,6 +2,7 @@ package com.crud.service;
 
 import com.crud.dao.UserDao;
 import com.crud.model.User;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,7 +46,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public List<User> listSelectUsers(String name) { return this.userDao.listSelectUsers(name); }
 
-    public User getUserByName(String name) {
-        return this.userDao.getUserByName(name);
+    public List<User> listOfUsers(Pageable pageable) {
+        return this.userDao.listOfUsers(pageable);
     }
 }
